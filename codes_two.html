@@ -1,0 +1,43 @@
+<!-- codes.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Head content -->
+  </head>
+  <body>
+    <h1>Search Data</h1>
+
+    <form action="/search" method="post">
+      <label for="search_type">Select Search Type:</label>
+      <select name="search_type" id="search_type">
+        <option value="uts">Ultimate Tensile Stress (UTS)</option>
+        <option value="elongation">Elongation</option>
+        <option value="reduction">Reduction in Area</option>
+        <option value="yield">Yield Stress</option>
+      </select>
+      <br />
+
+      <label for="value_to_search">Enter Value to Search:</label>
+      <input type="text" name="value_to_search" required />
+      <br />
+
+      <button type="submit" name="submit_button" value="search_uts">
+        Search UTS
+      </button>
+      <button type="submit" name="submit_button" value="search_elongation">
+        Search Elongation
+      </button>
+      <button type="submit" name="submit_button" value="search_reduction">
+        Search Reduction in Area
+      </button>
+      <button type="submit" name="submit_button" value="search_uts">
+        Search Yield Stress
+      </button>
+    </form>
+
+    {{ table_html | safe }} {% if error_message %}
+    <p style="color: red">{{ error_message }}</p>
+    {% endif %}
+  </body>
+</html>

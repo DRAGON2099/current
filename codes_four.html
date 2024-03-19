@@ -1,0 +1,76 @@
+<!-- codes.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Head content -->
+  </head>
+  <body>
+    <h1>Search Data</h1>
+
+    <form action="/search" method="post">
+      <label for="search_type">Select Search Type:</label>
+      <select name="search_type" id="search_type">
+        <option value="uts">Ultimate Tensile Stress (UTS)</option>
+        <option value="elongation">Elongation</option>
+        <option value="reduction">Reduction in Area</option>
+        <option value="yield">Yield Stress</option>
+      </select>
+      <br />
+
+      <label for="value_to_search">Enter Value to Search:</label>
+      <input type="text" name="value_to_search" required />
+      <br />
+
+      <h2>Optional Filters :-</h2>
+
+      <!-- Add optional filters based on the selected search type -->
+      <div id="optional_filters"></div>
+
+      <button type="submit" name="submit_button" value="search_now">
+        Search Now
+      </button>
+    </form>
+
+    {{ table_html | safe }} {% if error_message %}
+    <p style="color: red">{{ error_message }}</p>
+    {% endif %}
+
+    <script>
+      // JavaScript to dynamically generate optional filters based on the selected search type
+      var searchTypeSelect = document.getElementById("search_type");
+      var optionalFiltersDiv = document.getElementById("optional_filters");
+
+      searchTypeSelect.addEventListener("change", function () {
+        var selectedSearchType = this.value;
+
+        // Clear previous optional filters
+        optionalFiltersDiv.innerHTML = "";
+
+        // Add optional filters based on the selected search type
+        if (
+          selectedSearchType === "uts" ||
+          selectedSearchType === "elongation" ||
+          selectedSearchType === "reduction" ||
+          selectedSearchType === "yield"
+        ) {
+          var label = document.createElement("label");
+          label.setAttribute("for", "optional_filter");
+          label.textContent = "Reduction in Area:"; // Set the static label
+
+          var input = document.createElement("input");
+          input.setAttribute("type", "text");
+          input.setAttribute("name", "optional_filter");
+
+          // Append the optional filter elements to the div
+          optionalFiltersDiv.appendChild(label);
+          optionalFiltersDiv.appendChild(input);
+        }
+      });
+
+      // Trigger the change event manually on page load
+      var event = new Event("change");
+      searchTypeSelect.dispatchEvent(event);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PROCESSING</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      form {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <!-- Header -->
+    <header id="header">
+      <a href="index.html" class="title">HOME</a>
+    </header>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <section id="main" class="wrapper">
+        <div class="inner">
+          <h1 class="major">Choose Required Data :-</h1>
+        </div>
+      </section>
+    </div>
+
+    <form id="form1">
+      <label for="select1">Select Output/Required Data:</label>
+      <select id="select1" name="select1">
+        <option value="strength.html">Strength</option>
+        <option value="elongation.html">Elongation</option>
+        <option value="hardness.html">Hardness</option>
+        <option value="heat_treat.html">Heat Treatment</option>
+        <option value="comps.html">Composition/Alloying Elements</option>
+        <option value="micro.html">Microstructure</option>
+        <!-- Add more options as needed -->
+      </select>
+      <p></p>
+    </form>
+      <p></p>
+      <button type="button" onclick="redirectToPage()">
+        Proceed with Selection
+      </button>
+    </form>
+
+    <script>
+      function redirectToPage() {
+        var form1Value = document.getElementById("select1").value;
+
+        // You can customize the redirection logic based on the selected options
+        var redirectionURL = form1Value;
+
+        // Redirect to the specified URL
+        window.location.href = redirectionURL;
+      }
+    </script>
+
+    <!-- Footer -->
+    <footer id="footer" class="wrapper alt">
+      <div class="inner">
+        <ul class="menu">
+          <li>&copy; Untitled. All rights reserved.</li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
